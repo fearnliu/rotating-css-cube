@@ -1,0 +1,110 @@
+.container {
+    margin: 10em auto;
+    width: 13em;
+    height: 13em;
+    position: relative;
+
+    perspective: 50em;
+}
+
+.cube {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+    animation-name: rotating;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.cube > div {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cube > div::before {
+    font-size: 4em;
+}
+
+.cube > .front {
+    background-color: hsla(220, 100%, 50%, 0.6);
+    transform: translateZ(6.5em);
+}
+
+.cube > .front::before {
+    content: "front";
+}
+
+.cube > .back {
+    background-color: hsla(40, 100%, 50%, 0.60);
+    transform: translateZ(-6.5em) rotateX(180deg);
+}
+
+.cube > .back::before {
+    content: "back";
+}
+
+.cube > .left {
+    background-color: hsla( 180, 100%, 50%, 0.6);
+    transform: translateX(-6.5em) rotateY(-90deg);
+}
+
+.cube > .left::before {
+    content: "left";
+}
+
+.cube > .right {
+    background-color: hsla(150, 100%, 50%, 0.6);
+    transform: translateX(6.5em) rotateY(90deg);
+}
+
+.cube > .right::before {
+    content: "right";
+}
+
+.cube > .top {
+    background-color: hsla(0, 100%, 50%, 0.6);
+    transform: translateY(-6.5em) rotateX(90deg);
+}
+
+.cube > .top::before {
+    content: "top";
+}
+
+.cube > .bottom {
+    background-color: hsla(300, 100%, 50%, 0.6);
+    transform: translateY(6.5em) rotateX(-90deg);
+}
+
+.cube > .bottom::before {
+    content: "bottom";
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotateX(0) rotateY(0);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
